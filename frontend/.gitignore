@@ -1,1 +1,8 @@
-node_modules
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# API request files (optional)
+api.rest

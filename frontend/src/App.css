@@ -40,3 +40,9 @@ body{
   max-width: 90%;
   margin: 0 auto;
 }
+.logoutButton{
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
