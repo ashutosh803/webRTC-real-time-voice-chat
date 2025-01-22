@@ -29,6 +29,22 @@ class RoomsControlleer {
     return res.json(room)
   }
 
+  async clientRoom(req, res){
+    const rooms = await roomService.getClientRoom(req.user._id);
+    const allRooms = rooms.map(room => new RoomDto(room));
+    return res.json(allRooms)
+  }
+
+  async delete(req, res){
+    try{
+      await roomService.deleteRoom(req.params.roomId);
+      return res.json({message: "deleted"})
+    } catch(err){
+      console.log(err);
+      return res.json({message: "delete failed"})
+    }
+  }
+
 }
 
 module.exports = new RoomsControlleer()

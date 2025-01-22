@@ -15,7 +15,7 @@ const StepPhoneEmail = ({ onNext }) => {
   return (
     <>
       <div className={styles.cardWrapper}>
-        <div>
+        <div className={styles.cardContent}>
           <div className={styles.buttonWrap}>
           <button className={`${styles.tabButton} ${type === "phone" && styles.active}`} onClick={() => setType("phone")}>
               <img src="/images/phone-white.png" alt="phone" />

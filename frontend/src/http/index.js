@@ -24,6 +24,13 @@ export const getAllRooms = () => api.get("/api/rooms")
 
 export const getRoom = (roomId) => api.get(`/api/rooms/${roomId}`)
 
+export const deleteRoom = (roomId) => api.delete(`/api/rooms/${roomId}`);
+
+export const getProfile = () => api.get("/api/profile")
+
+export const encryptData = (data) => api.post("/api/encrypt", data)
+
+// export const decryptData = (data) => api.post(`/encrypted/${data}`)
 
 // Interceptors
 api.interceptors.response.use(

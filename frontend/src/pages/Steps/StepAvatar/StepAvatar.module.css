@@ -26,3 +26,12 @@
   display: inline-block;
   cursor: pointer;
 }
+
+@media (max-width: 568px){
+  .avatarLabel {
+    font-size: 1.7rem;
+  }
+  .subHeading{
+    font-size: 1.3rem;
+  }
+}

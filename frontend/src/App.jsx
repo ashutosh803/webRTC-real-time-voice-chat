@@ -11,13 +11,13 @@ import { useSelector } from "react-redux";
 import { useLoadingWithRefresh } from "./hooks/useLoadingWithRefresh";
 import Loader from "./components/shared/Loader/Loader";
 import Room from "./pages/Room/Room";
+import Profile from "./components/Profile/Profile";
 
 
 
 function App() {
 
   const { loading } = useLoadingWithRefresh()
-
 
   return (
     loading ? <Loader message="Loading please wait..." />
@@ -43,6 +43,10 @@ function App() {
 
           <Route element={<ProtectedRoute />}>
             <Route path="/room/:id" element={<Room />} />
+          </Route>
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/profile" element={<Profile />}></Route>
           </Route>
 
         </Route>

@@ -4,61 +4,27 @@ import RoomCard from '../../components/RoomCard/RoomCard'
 import AddRoomModal from '../../components/AddRoomModal/AddRoomModal'
 import { getAllRooms } from '../../http'
 
-// const rooms = [
-//   {
-//     id: 1,
-//     topic: 'which framework best for frontend',
-//     speakers: [
-//       {
-//         id: 1,
-//         name: 'john doe',
-//         avatar: '/images/monkey-avatar.png'
-//       },
-//       {
-//         id: 2,
-//         name: 'john doe',
-//         avatar: '/images/monkey-avatar.png'
-//       }
-//     ],
-//     totalPeople: 40
-//   },
-//   {
-//     id: 2,
-//     topic: 'which framework best for frontend',
-//     speakers: [
-//       {
-//         id: 1,
-//         name: 'john doe',
-//         avatar: '/images/monkey-avatar.png'
-//       },
-//       {
-//         id: 2,
-//         name: 'john doe',
-//         avatar: '/images/monkey-avatar.png'
-//       }
-//     ],
-//     totalPeople: 40
-//   }
-// ]
 
 const Rooms = () => {
   const [showModal, setShowModal] = useState(false);
   const [rooms, setRooms] = useState([])
+  const [searchTopic, setSearchTopic] = useState("");
+  const [refetchRooms, setRefetchRooms] = useState(false);
+
 
   useEffect(() => {
     const fetchRooms = async () => {
       const { data } = await getAllRooms();
-      console.log(data)
       setRooms(data)
     }
-
     fetchRooms()
-  }, [])
+  }, [refetchRooms])
 
+  const filteredRooms = rooms.filter(room => room.topic.includes(searchTopic));
 
   return (
     <>
-    { showModal && <AddRoomModal onClose={() => setShowModal(false)} /> }
+    { showModal && <AddRoomModal setRefetchRooms={setRefetchRooms} onClose={() => setShowModal(false)} /> }
 
     <div className='container'>
       <div className={styles.roomsHeader}>
@@ -66,7 +32,7 @@ const Rooms = () => {
           <span className={styles.heading}>All voice rooms</span>
           <div className={styles.searchBox}>
             <img src='/images/search-icon.png' alt='search' className={styles.searchIcon} />
-            <input type='text' className={styles.searchInput} />
+            <input type='text' className={styles.searchInput} onChange={(e) => setSearchTopic(e.target.value)} />
           </div>
         </div>
         <div className={styles.right}>
@@ -79,8 +45,8 @@ const Rooms = () => {
 
       <div className={styles.roomList}>
         {
-          rooms.map((room) => (
-            <RoomCard key={room.id} room={room} />
+          filteredRooms.reverse().map((room) => (
+            <RoomCard key={room.id} room={room} onDelete={setRefetchRooms} />
           ))
         }
 

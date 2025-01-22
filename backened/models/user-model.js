@@ -17,10 +17,15 @@ const userSchema = new mongoose.Schema({
       }
     }
   },
+
   phone: {
     type: String,
-    required: true
   },
+
+  email: {
+    type: String
+  },
+  
   activated: {
     type: Boolean,
     required: false,

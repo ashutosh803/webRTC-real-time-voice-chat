@@ -57,7 +57,6 @@ button {
 }
 .room.active {
   background-color: #262626;
-
 }
 
 .topicInput {
@@ -93,4 +92,32 @@ button {
   color: white;
   font-weight: bold;
   font-size: 1rem;
+}
+
+@media (max-width: 568px){
+  .card{
+    width: 90%;
+    font-size: 1.4rem;
+  }
+  .header h4 {
+    margin-top: 3rem !important;
+  }
+  .closeButton img {
+    width: 40px;
+  }
+  .topicInput{
+    font-size: 1.7rem;
+    font-weight: lighter !important;
+    font-family:Verdana, Geneva, Tahoma, sans-serif !important;
+  }
+ 
+  .roomType {
+    flex-direction: column;
+  }
+  .startRoomBtn {
+    padding: 10px 2rem
+  }
+  .startRoomBtn span{
+    font-size: 30px
+  }
 }

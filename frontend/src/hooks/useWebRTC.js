@@ -4,16 +4,7 @@ import {socketInit} from "../sockets"
 import { ACTIONS } from "../actions";
 import freeice from "freeice"
 
-const users = [
-  // {
-  //   id: 1,
-  //   name: 'Ashutosh'
-  // },
-  // {
-  //   id: 2,
-  //   name: 'Ashish'
-  // }
-]
+const users = [];
 
 export const useWebRTC = (roomId, user) => {
   const [clients, setClients] = useStateWithCallback(users);
@@ -34,6 +25,7 @@ export const useWebRTC = (roomId, user) => {
   useEffect(() => {
     clientsRef.current = clients
   }, [clients])
+
 
   useEffect(() => {
     const initChat = async () => {
@@ -238,4 +230,6 @@ export const useWebRTC = (roomId, user) => {
   }
 
   return { clients, provideRef, handleMute }
+  
 }
+

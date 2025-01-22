@@ -8,3 +8,11 @@
   border-radius: 10px;
   outline: none;
 }
+
+@media (max-width: 568px){
+  .input {
+    width: 100%;
+    font-size: 1.6rem;
+    padding: 1rem 1.5rem;
+  }
+}

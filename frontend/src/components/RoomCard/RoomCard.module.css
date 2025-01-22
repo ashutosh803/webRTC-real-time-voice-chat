@@ -4,6 +4,7 @@
   border-radius: 10px;
   padding: 20px;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .speakers{
@@ -15,7 +16,6 @@
  .names {
   margin-left: 3.5rem;
 }
-
 
 .nameWrapper span{
   margin-right: 10px;
@@ -55,4 +55,97 @@
   margin-right: 5px;
   font-weight: bold;
 
+}
+button{
+  background-color: rgb(9, 9, 177);
+  color: white;
+  padding: 5px 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+.inviteContainer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.inviteContent {
+  width: 50%;
+  min-height: 30%;
+  background-color: rgb(90, 90, 90);
+  text-align: center;
+  position: relative;
+  padding: 10px;
+}
+.linkBtn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 2rem 0;
+  margin-bottom: 1rem;
+}
+.copyLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.copyLink button {
+  width: fit-content;
+}
+.closeBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.copyTextBtn {
+  background-color: rgb(129, 128, 128);
+}
+.actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem
+}
+.deleteBtn {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.deleteBtn img {
+  width: 30px;
+}
+@media (max-width: 568px){
+  .card {
+    width: 100%;
+  }
+  .inviteBtn{
+    font-size: 1.6rem;
+  }
+  .inviteContent {
+    width: 90%;
+    padding: 2rem 1rem
+  }
+  .linkBtn{
+    font-size: 1.6rem;
+    margin-top: 3rem;
+  }
+  .closeBtn {
+    font-size: 1.6rem;
+  }
+  .copyLink {
+    gap: 2rem;
+  }
+  .copyLink button {
+    font-size: 1.6rem;
+    padding: 1rem 2rem
+  }
 }

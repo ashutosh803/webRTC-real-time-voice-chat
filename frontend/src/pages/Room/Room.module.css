@@ -112,3 +112,43 @@
   gap: 30px;
   flex-wrap: wrap;
 }
+
+@media (max-width: 568px){
+  .userHead{
+    width: 150px;
+    height: 150px;
+  }
+  .micWrapper{
+    width: 40px;
+    height: 40px;
+  }
+  .header{
+    flex-direction: column;
+    gap: 3rem
+  }
+  .topic {
+    order: 2;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+  .actions > * {
+    margin-right: 0;
+    margin-left: auto;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+  .actions img {
+    width: 20px;
+  }
+  .goBack span {
+    font-size: 1.5rem;
+  }
+  .client h4 {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    letter-spacing: 1px;
+  }
+}

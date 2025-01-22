@@ -5,6 +5,6 @@ import activate from './activateSlice'
 export default configureStore({
   reducer: {
     auth,
-    activate
+    activate,
   }
 })

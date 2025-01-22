@@ -29,7 +29,7 @@
   min-width: 250px;
   background-color: #262626;
   border-radius: 20px;
-  padding: 0 10px
+  padding: 0 10px;
 }
 .searchIcon {
   text-align: center;
@@ -44,7 +44,7 @@
 }
 .addRoomBtn {
   padding: 7px 20px;
-  background-color: #20bd5f;
+  background-color: #0aa717;
   cursor: pointer;
   border: none;
   outline: none;
@@ -60,11 +60,46 @@
   font-size: 16px;
 }
 .addRoomBtn:hover {
-  background-color: rgb(12, 209, 12);
+  background-color: rgb(6, 146, 6);
 }
 .roomList {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin-top: 60px;
+  /* justify-items: center */
+}
+@media (max-width: 568px){
+  .roomList{
+    grid-template-columns: 100%;
+    gap: 2rem;
+  }
+  .roomsHeader{
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .left {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+  .left .heading{
+    font-size: 25px;
+  }
+  .searchBox{
+    width: 100%;
+  }
+  .searchInput{
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    padding: 15px
+  }
+  .addRoomBtn span {
+    font-size: 1.6rem;
+    padding: 10px;
+    font-weight: lighter;
+  }
+
+
 }

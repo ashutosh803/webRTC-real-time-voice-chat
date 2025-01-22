@@ -21,3 +21,16 @@
   font-weight: bold;
   margin-left: 10px;
 }
+
+@media (max-width: 568px){
+  .card {
+    max-width: 90%;
+  }
+  .headingwrapper {
+    gap: 1rem;
+    width: 100%;
+  }
+  .heading {
+    font-size: 1.6rem;
+  }
+}

@@ -14,6 +14,7 @@ const Room = () => {
   const { clients, provideRef, handleMute } = useWebRTC(roomID, user)
   const [isMute, setMute] = useState(true)
 
+
   const handleMuteClick = (clientId) => {
     if(clientId !== user.id) return;
     setMute(prev => !prev)
@@ -59,25 +60,25 @@ const Room = () => {
         </div>
         <div className={styles.clientsList}>
         {
-        clients.map(client => {
-          return (
-            <div key={client.id} className={styles.client}>
-              <div className={styles.userHead} >
-                <audio 
-                ref={(instance) => provideRef(instance, client.id)}
-                autoPlay>
-                </audio>
-                <img className={styles.avatar} src={client.avatar} alt="avatar" />
-                <button onClick={() => handleMuteClick(client.id)} className={styles.micWrapper}>
-                  {
-                    client.muted ? <img src="/images/mic-mute.png" alt="mic-mute-icon" /> : <img src="/images/mic.png" alt="mic-icon" />
-                  }
-                </button>
+          clients.map(client => {
+            return (
+              <div key={client.id} className={styles.client}>
+                <div className={styles.userHead} >
+                  <audio 
+                  ref={(instance) => provideRef(instance, client.id)}
+                  autoPlay>
+                  </audio>
+                  <img className={styles.avatar} src={client.avatar} alt="avatar" />
+                  <button onClick={() => handleMuteClick(client.id)} className={styles.micWrapper}>
+                    {
+                      client.muted ? <img src="/images/mic-mute.png" alt="mic-mute-icon" /> : <img src="/images/mic.png" alt="mic-icon" />
+                    }
+                  </button>
+                </div>
+                <h4>{client.name}</h4>
               </div>
-              <h4>{client.name}</h4>
-            </div>
-          )
-        })
+            )
+          })
       }
         </div>
         </div>

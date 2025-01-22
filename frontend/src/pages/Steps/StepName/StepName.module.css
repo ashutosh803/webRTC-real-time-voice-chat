@@ -4,3 +4,10 @@
   margin: 20px auto;
 }
 .actionButtonWrap {}
+
+@media (max-width: 568px){
+  .paragraph{
+    font-size: 1.7rem;
+    width: 100%;
+  }
+}

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./AddRoomModal.module.css";
 import { createRoom as create } from "../../http";
 import { useNavigate } from "react-router-dom";
 
-const AddRoomModal = ({ onClose }) => {
+const AddRoomModal = ({ onClose, setRefetchRooms }) => {
   const [roomType, setRoomType] = useState("open");
   const [topic, setTopic] = useState('');
   const navigate = useNavigate()
@@ -37,7 +37,13 @@ const AddRoomModal = ({ onClose }) => {
     try{
       const { data } = await create({ topic, roomType});
       console.log(data)
-      navigate(`/room/${data.id}`);
+      if(data.roomType === "private" || data.roomType === "social"){
+        navigate("/profile")
+      }
+      else{
+        setRefetchRooms(prev => !prev)
+        onClose(true)
+      }
     } catch(err){
       console.log(err)
     }
@@ -79,7 +85,7 @@ const AddRoomModal = ({ onClose }) => {
         </div>
 
         <div className={styles.startRoomWrapper}>
-          <h4 style={{ fontWeight: "bold" }}>Start a room, open to everyone</h4>
+          <h4 style={{ fontWeight: "bold" }}>Start a room, {roomType === "private" ? "open to few" : "open to everyone"}</h4>
 
           <button onClick={createRoom} className={styles.startRoomBtn}>
             <img src="/images/celebration.png" />

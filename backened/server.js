@@ -39,7 +39,7 @@ app.use(router)
 app.use("/storage", express.static("storage"))
 
 app.get("/", (req, res) => {
-  res.json({id: crypto.randomBytes(64).toString("hex")})
+  res.json({id: crypto.randomBytes(32).toString('hex')})
 })
 
 // sockets
@@ -68,6 +68,7 @@ io.on("connection", (socket) => {
 
     socket.join(roomId)
   })
+
 
   // mute the mic
   socket.on(ACTIONS.MUTE, ({userId, roomId}) => {

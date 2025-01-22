@@ -21,6 +21,16 @@ class RoomService {
     const room = await RoomModel.findOne({_id: roomId});
     return room;
   }
+
+  async getClientRoom(ownerId){
+    const rooms = await RoomModel.find({ ownerId }).populate("speakers").populate("ownerId").exec();
+    return rooms;
+  }
+
+  async deleteRoom(roomId){
+    const room = await RoomModel.deleteOne({_id: roomId})
+    return room;
+  }
 }
 
 module.exports = new RoomService()
