@@ -1,3 +1,0 @@
-# Ignore backend-specific files
-node_modules/
-.env

@@ -7,13 +7,15 @@ const path = require("path")
 const ACTIONS = require("./actions")
 
 const app = express();
+const _dirname = path.resolve();
+
 const DBConnect = require("./database")
 
 const server = require('http').createServer(app)
 
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: process.env.CLIENT_URL,
     methods: ['GET', 'POST']
   }
 })
@@ -24,7 +26,7 @@ const router = require("./routes")
 
 const corsOption = {
   credentials: true,
-  origin: ['http://localhost:5173']
+  origin: [process.env.CLIENT_URL]
 }
 app.use(cors(corsOption))
 
@@ -38,9 +40,6 @@ app.use(router)
 
 app.use("/storage", express.static("storage"))
 
-app.get("/", (req, res) => {
-  res.json({id: crypto.randomBytes(32).toString('hex')})
-})
 
 // sockets
 const socketUserMapping = {}
@@ -145,6 +144,12 @@ io.on("connection", (socket) => {
 
   socket.on(ACTIONS.LEAVE, leaveRoom)
   socket.on("disconnecting", leaveRoom)
+})
+
+app.use(express.static(path.join(_dirname, "/frontend/dist")))
+
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"))
 })
 
 server.listen(PORT, () => {
