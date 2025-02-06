@@ -58,6 +58,7 @@ const Room = () => {
             </button>
           </div>
         </div>
+
         <div className={styles.clientsList}>
         {
           clients.map(client => {
@@ -75,7 +76,7 @@ const Room = () => {
                     }
                   </button>
                 </div>
-                <h4>{client.name}</h4>
+                <h4 className={styles.clientName}>{client.name}</h4>
               </div>
             )
           })

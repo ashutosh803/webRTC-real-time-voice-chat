@@ -30,6 +30,13 @@
     gap: 1rem;
     width: 100%;
   }
+  .headingwrapper img{
+    width: 30px;
+  }
+  .headingwrapper h1 {
+    font-size: 1.2rem;
+
+  }
   .heading {
     font-size: 1.6rem;
   }

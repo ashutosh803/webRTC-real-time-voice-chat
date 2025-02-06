@@ -1,5 +1,4 @@
 .card {
-  width: 250px;
   background-color: #1d1d1d;
   border-radius: 10px;
   padding: 20px;
@@ -121,31 +120,45 @@ button{
   background-color: transparent;
 }
 .deleteBtn img {
-  width: 30px;
+  width: 20px;
 }
+
 @media (max-width: 568px){
   .card {
     width: 100%;
+    font-size: .9rem;
+  }
+  .deleteBtn img {
+    width: 20px;
+  }
+  .actions {
+    margin-top: 5px;
   }
   .inviteBtn{
-    font-size: 1.6rem;
+    font-size: 1rem;
   }
   .inviteContent {
     width: 90%;
-    padding: 2rem 1rem
+    padding: 2rem
   }
   .linkBtn{
-    font-size: 1.6rem;
+    font-size: 1rem;
     margin-top: 3rem;
   }
   .closeBtn {
     font-size: 1.6rem;
   }
+  .inviteSpanContent{
+    font-size: 1rem;
+  }
   .copyLink {
     gap: 2rem;
   }
   .copyLink button {
-    font-size: 1.6rem;
-    padding: 1rem 2rem
+    font-size: 1.1rem;
+    padding: .8rem 1.1rem
+  }
+  .shareLink{
+    font-size: 1.1rem;
   }
 }

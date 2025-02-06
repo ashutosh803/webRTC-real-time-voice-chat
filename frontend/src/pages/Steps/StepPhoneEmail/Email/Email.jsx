@@ -29,9 +29,9 @@ const Email = ({onNext}) => {
       <div className={styles.actionButtonWrap}>
         <Button onClick={submit} text="Next" />
       </div>
-      <p className={styles.bottomParagraph}>
+      {/* <p className={styles.bottomParagraph}>
         By entering your number, you're agreeing to our terms of services and Privacy Policy.
-      </p>
+      </p> */}
       </div>
     </Card>
   );

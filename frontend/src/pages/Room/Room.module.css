@@ -115,12 +115,18 @@
 
 @media (max-width: 568px){
   .userHead{
-    width: 150px;
-    height: 150px;
+    width: 110px;
+    height: 110px;
+  }
+  .clientWrap {
+    margin-top: 0;
   }
   .micWrapper{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+  }
+  .micWrapper img {
+    width: 25px;
   }
   .header{
     flex-direction: column;
@@ -128,7 +134,7 @@
   }
   .topic {
     order: 2;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: lighter;
     letter-spacing: 1px;
     margin-left: 0;
@@ -144,11 +150,20 @@
     width: 20px;
   }
   .goBack span {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .client h4 {
     font-size: 1.5rem;
     font-weight: lighter;
     letter-spacing: 1px;
+  }
+  .actionBtn > img {
+    width: 15px;
+  }
+  .actionBtn span {
+    font-size: .8rem;
+  }
+  .client .clientName {
+    font-size: 1rem;
   }
 }

@@ -63,7 +63,7 @@ const Navigation = () => {
           windowWidth > 568 && isAuth && 
             <div className={styles.navRight}>
             <h3>{user?.name}</h3>
-            <Link onClick={gotoProfile}>
+            <Link to="/profile">
               <img className={styles.avatar} src={user.avatar ? user.avatar : '/images/monkey-avatar.png'} alt="avatar" />
             </Link>
             <button className="logoutButton" onClick={logoutUser}>
@@ -84,7 +84,7 @@ const Navigation = () => {
                   <Link onClick={gotoProfile} to="/profile">
                   <img className={styles.avatar} src={user.avatar ? user.avatar : '/images/monkey-avatar.png'} alt="avatar" />
                 </Link>
-                <h3>{user?.name}</h3>
+                <h3 className={styles.userName}>{user?.name}</h3>
                 
                   <button className={styles.logoutBtn}  onClick={logoutUser}>
                     <span>Logout</span>

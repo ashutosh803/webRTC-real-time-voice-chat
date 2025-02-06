@@ -15,12 +15,12 @@ const AddRoomModal = ({ onClose, setRefetchRooms }) => {
       icon: '/images/globe.png',
       label: "Open"
     },
-    {
-      id: crypto.randomUUID(),
-      type: 'social',
-      icon: '/images/social.png',
-      label: "Social"
-    },
+    // {
+    //   id: crypto.randomUUID(),
+    //   type: 'social',
+    //   icon: '/images/social.png',
+    //   label: "Social"
+    // },
     {
       id: crypto.randomUUID(),
       type: 'private',

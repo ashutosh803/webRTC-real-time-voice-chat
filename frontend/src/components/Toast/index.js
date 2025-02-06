@@ -6,7 +6,7 @@ const toastOptions = {
   hideProgressBar: false,
   closeOnClick: false,
   pauseOnHover: true,
-  style: {marginTop: "50px", width: "400px", fontSize: "1.7rem"}
+  style: {marginTop: "50px", }
   }
 
   

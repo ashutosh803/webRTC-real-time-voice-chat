@@ -1,6 +1,7 @@
 .roomsHeader {
   display: flex;
   justify-content: space-between;
+  margin-top: 1.5rem;
 }
 
 .left {
@@ -77,6 +78,7 @@
   .roomsHeader{
     flex-direction: column;
     gap: 2rem;
+    margin-top: 0;
   }
   .left {
     width: 100%;
@@ -85,21 +87,21 @@
     gap: 3rem;
   }
   .left .heading{
-    font-size: 25px;
+    font-size: 1rem;
   }
   .searchBox{
     width: 100%;
   }
   .searchInput{
-    font-size: 1.6rem;
+    font-size: 1rem;
     letter-spacing: 1px;
-    padding: 15px
+    padding: 1rem
   }
   .addRoomBtn span {
-    font-size: 1.6rem;
-    padding: 10px;
+    font-size: 1rem;
+    padding: .5rem;
     font-weight: lighter;
   }
-
+ 
 
 }

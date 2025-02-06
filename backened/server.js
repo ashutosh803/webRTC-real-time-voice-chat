@@ -26,8 +26,8 @@ app.use(cookieParser());
 
 
 const allowedOrigins = [
-  'https://talkify-frontend-g7g1.onrender.com', // your frontend's URL
-  // Add any other allowed origins here
+  'https://talkify-frontend-g7g1.onrender.com',
+  process.env.LOCAL_DEV_CLIENT_URL
 ];
 
 const corsOptions = {
@@ -57,7 +57,9 @@ app.use(express.json({ limit: '8mb' }));
 // Routes setup
 const router = require("./routes");
 app.use(router);
-
+app.get("/", (req, res) => {
+  console.log(res.send("hello"));
+})
 // Static file serving for storage
 app.use("/storage", express.static("storage"));
 

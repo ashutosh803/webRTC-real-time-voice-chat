@@ -26,15 +26,13 @@ const Home = () => {
       <Card title="Welcome to Talkify" icon="logo">
 
         <p className={styles.text}>
-          We're working hard to get Talkify ready for everyone! While we wrap up
-          the finishing touches, we are adding people gradually to make sure
-          nothing breaks
+        Welcome to Talkify, the place where you can meet new people and have spontaneous, real-time voice conversations with strangers from around the world.
         </p>
         <div>
           <Button onClick={startRegister} text="Let's Go" />
         </div>
         <div className={styles.signinWrapper}>
-          <span className={styles.hasInvite}>Have an invite text?</span>
+          {/* <span className={styles.hasInvite}>Have an invite text?</span> */}
           {/* <Link to={"/login"} style={signInLinkStyle}>Sign in</Link> */}
         </div>
       </Card>

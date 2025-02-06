@@ -95,18 +95,19 @@ button {
 }
 
 @media (max-width: 568px){
+ 
   .card{
     width: 90%;
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
   .header h4 {
     margin-top: 3rem !important;
   }
   .closeButton img {
-    width: 40px;
+    width: 30px;
   }
   .topicInput{
-    font-size: 1.7rem;
+    font-size: 1rem;
     font-weight: lighter !important;
     font-family:Verdana, Geneva, Tahoma, sans-serif !important;
   }
@@ -118,6 +119,6 @@ button {
     padding: 10px 2rem
   }
   .startRoomBtn span{
-    font-size: 30px
+    font-size: 1rem
   }
 }

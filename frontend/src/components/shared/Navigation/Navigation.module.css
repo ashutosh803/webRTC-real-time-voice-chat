@@ -57,27 +57,27 @@
 
 @media (max-width: 568px){
   .avatar {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
   }
-  
   .logoutBtn img {
     width: 50px;
   }
   .userInfo .logoutBtn{
-    font-size: 1.6rem;
-    padding: 5px 2rem
+    font-size: 1rem;
+    padding: 0 1rem;
   }
   .sliderMenu button{
-    font-size: 2rem;
+    font-size: 1rem;
   }
-  .humburgerBtn {
-    font-size: 2rem;
-  }
+  
   .navbar .logoText {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
   .logoImg {
-    width: 40px;
+    width: 25px;
+  }
+  .userName {
+    font-size: 1.2rem;
   }
 }

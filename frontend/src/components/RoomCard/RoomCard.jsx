@@ -81,7 +81,9 @@ const RoomCard = ({room, onDelete}) => {
           }
           {
             room?.ownerId?.id === ownerId && (
-              <button onClick={() => handleDeleteRoom(room.id)} className={styles.deleteBtn}><img src="/images/delete.png" alt="delete-icon" /></button>
+              <button onClick={() => handleDeleteRoom(room.id)} className={styles.deleteBtn}>
+                <img src="/images/delete.png" alt="delete-icon" />
+              </button>
             )
           }
         </div>
@@ -98,9 +100,9 @@ const RoomCard = ({room, onDelete}) => {
             {
               inviteLink && (
                 <div className={styles.copyLink}>
-                  <span style={{wordBreak: "break-word"}}>{inviteLink}</span>
+                  <span className={styles.inviteSpanContent} style={{wordBreak: "break-word"}}>{inviteLink}</span>
                   <button onClick={copyLink}>copy</button>
-                  <span>share this link to others</span>
+                  <span className={styles.shareLink}>share this link to others</span>
               </div>
               )
             }

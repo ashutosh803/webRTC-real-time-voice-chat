@@ -22,9 +22,10 @@ const Profile = () => {
     
   }, [refetchRooms])
 
+
   return (
     <div className={styles.rooms}>
-      <h1>All Rooms</h1>
+      <h1 className={styles.roomsh1}>All Rooms</h1>
       
     <div className={styles.roomList}>
     {
