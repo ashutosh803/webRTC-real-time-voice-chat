@@ -16,9 +16,9 @@ const server = require('http').createServer(app);
 // Socket.IO setup
 const io = require('socket.io')(server, {
   cors: {
-    origin: process.env.CLIENT_URL,  // Ensure CLIENT_URL is set correctly in .env
+    origin: process.env.CLIENT_URL,  
     methods: ['GET', 'POST'],
-    credentials: true,  // Allow credentials (cookies, headers, etc.)
+    credentials: true,  
   }
 });
 
@@ -26,22 +26,22 @@ app.use(cookieParser());
 
 
 const allowedOrigins = [
-  'https://talkify-frontend-g7g1.onrender.com',
+  process.env.BASE_URL,
   process.env.LOCAL_DEV_CLIENT_URL
 ];
 
 const corsOptions = {
   origin: function (origin, callback) {
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      // allow request from the origin or no origin (e.g., for curl requests)
       callback(null, true);
     } else {
       callback(new Error('CORS not allowed'), false);
     }
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // add more methods if needed
-  allowedHeaders: ['Content-Type', 'Authorization'], // or any headers your app needs
-  credentials: true, // If you're using cookies with CORS
+
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  allowedHeaders: ['Content-Type', 'Authorization'], 
+  credentials: true, 
 };
 
 
@@ -49,7 +49,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Database connection
-DBConnect();
+await DBConnect();
 
 // Express settings
 app.use(express.json({ limit: '8mb' }));

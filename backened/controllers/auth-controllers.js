@@ -31,8 +31,7 @@ class AuthController {
 
    try {
     if(phone){
-      // await otpService.sendBySms(phone, otp);
-      console.log(phone)
+      await otpService.sendBySms(phone, otp);
     }
 
     if(email){
