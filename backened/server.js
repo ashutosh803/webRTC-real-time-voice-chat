@@ -24,27 +24,26 @@ const io = require('socket.io')(server, {
 
 app.use(cookieParser());
 
-// CORS configuration for all requests
-const corsOptions = {
-  origin: (origin, callback) => {
-    // Allow requests from both local and production frontend URLs
-    const allowedOrigins = [
-      process.env.LOCAL_DEV_CLIENT_URL,  // Local dev URL
-      process.env.CLIENT_URL  // Production URL
-    ];
 
-    if (allowedOrigins.includes(origin) || !origin) {  // Allow requests without origin (like curl or Postman)
+const allowedOrigins = [
+  'https://talkify-frontend-g7g1.onrender.com', // your frontend's URL
+  // Add any other allowed origins here
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      // allow request from the origin or no origin (e.g., for curl requests)
       callback(null, true);
     } else {
       callback(new Error('CORS not allowed'), false);
     }
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-  credentials: true,  // Allow credentials (cookies, headers, etc.)
-  preflightContinue: false, // Express will handle OPTIONS preflight requests
-  optionsSuccessStatus: 204,  // For legacy browsers (e.g., IE)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // add more methods if needed
+  allowedHeaders: ['Content-Type', 'Authorization'], // or any headers your app needs
+  credentials: true, // If you're using cookies with CORS
 };
+
 
 // Apply CORS middleware globally before any route handling
 app.use(cors(corsOptions));
