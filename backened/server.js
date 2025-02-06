@@ -45,7 +45,6 @@ const corsOptions = {
 };
 
 
-// Apply CORS middleware globally before any route handling
 app.use(cors(corsOptions));
 
 // Database connection
