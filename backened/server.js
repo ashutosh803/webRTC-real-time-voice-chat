@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 
 const allowedOrigins = [
-  process.env.BASE_URL,
+  process.env.CLIENT_URL,
   process.env.LOCAL_DEV_CLIENT_URL
 ];
 
