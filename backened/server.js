@@ -49,7 +49,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Database connection
-await DBConnect();
+ DBConnect();
 
 // Express settings
 app.use(express.json({ limit: '8mb' }));
