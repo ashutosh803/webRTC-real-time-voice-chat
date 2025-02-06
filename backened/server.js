@@ -146,11 +146,11 @@ io.on("connection", (socket) => {
   socket.on("disconnecting", leaveRoom)
 })
 
-app.use(express.static(path.join(_dirname, "/frontend/dist")))
+// app.use(express.static(path.join(_dirname, "/frontend/dist")))
 
-app.get("*", (_, res) => {
-  res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"))
-})
+// app.get("*", (_, res) => {
+//   res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"))
+// })
 
 server.listen(PORT, () => {
   console.log("listening on port"+PORT)
