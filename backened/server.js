@@ -18,7 +18,7 @@ const io = require('socket.io')(server, {
   cors: {
     origin: process.env.CLIENT_URL,  // Ensure CLIENT_URL is set correctly in .env
     methods: ['GET', 'POST'],
-    credentials: true,  // Allow credentials to be shared (cookies, headers, etc.)
+    credentials: true,  // Allow credentials (cookies, headers, etc.)
   }
 });
 
@@ -46,7 +46,7 @@ const corsOptions = {
   optionsSuccessStatus: 204,  // For legacy browsers (e.g., IE)
 };
 
-// Apply CORS middleware globally
+// Apply CORS middleware globally before any route handling
 app.use(cors(corsOptions));
 
 // Database connection
