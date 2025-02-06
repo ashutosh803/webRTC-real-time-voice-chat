@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Navigation from "./components/shared/Navigation/navigation";
+import Navigation from "./components/shared/Navigation/Navigation";
 import './App.css'
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
