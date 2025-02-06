@@ -56,10 +56,13 @@ app.use(express.json({ limit: '8mb' }));
 
 // Routes setup
 const router = require("./routes");
+
 app.use(router);
+
 app.get("/", (req, res) => {
   console.log(res.send("hello"));
 })
+
 // Static file serving for storage
 app.use("/storage", express.static("storage"));
 

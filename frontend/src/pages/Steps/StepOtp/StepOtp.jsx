@@ -43,13 +43,14 @@ const StepOtp = () => {
       input.value = input.value.slice(0, 1)
     }
     else if(input.value.length === 1){
-      if(idx + 1 < 4) input.parentElement.children[idx + 1].focus()
+      if(idx + 1 < 4) input.parentElement.children[idx + 1].focus();
     }
     else {
       if(idx - 1 >= 0){
         input.parentElement.children[idx - 1].focus()
       }
     }
+
     const otpNum = inputRefs.map((ref)=> ref.current.value).join('');
     setOtp(otpNum)
 }

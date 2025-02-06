@@ -1,5 +1,6 @@
 const RoomDto = require("../dtos/room-dto");
 const roomService = require("../services/room-service");
+const userService = require("../services/user-service");
 
 class RoomsControlleer {
   async create(req, res){
