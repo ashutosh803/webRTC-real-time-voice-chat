@@ -26,7 +26,19 @@ app.use(cookieParser())
 const router = require("./routes")
 // CORS configuration for all requests
 const corsOptions = {
-  origin: process.env.CLIENT_URL,  // Your frontend URL (e.g., https://talkify-frontend-g7g1.onrender.com)
+  origin: (origin, callback) => {
+    // Allow requests from both local and production frontend URLs
+    const allowedOrigins = [
+      process.env.LOCAL_DEV_CLIENT_URL,  // Local dev URL
+      process.env.CLIENT_URL  // Production URL
+    ];
+
+    if (allowedOrigins.includes(origin) || !origin) {  // Allow requests without origin (like curl or Postman)
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed'), false);
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
   credentials: true,  // Allow credentials (cookies, headers, etc.)
