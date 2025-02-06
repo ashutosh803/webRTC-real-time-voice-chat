@@ -36,6 +36,10 @@ DBConnect();
 
 app.use(express.json({limit: '8mb'}))
 
+app.get("/", (_, res) => {
+  res.send("welcome to talkify")
+})
+
 app.use(router)
 
 app.use("/storage", express.static("storage"))
