@@ -15,20 +15,28 @@ const server = require('http').createServer(app)
 
 const io = require('socket.io')(server, {
   cors: {
-    origin: process.env.CLIENT_URL,
-    methods: ['GET', 'POST']
+    origin: process.env.CLIENT_URL,  // Ensure CLIENT_URL is set correctly in .env
+    methods: ['GET', 'POST'],
+    credentials: true,  // Allow credentials to be shared (cookies, headers, etc.)
   }
 })
 
 app.use(cookieParser())
 
 const router = require("./routes")
+// CORS configuration for all requests
+const corsOptions = {
+  origin: process.env.CLIENT_URL,  // Your frontend URL (e.g., https://talkify-frontend-g7g1.onrender.com)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  credentials: true,  // Allow credentials (cookies, headers, etc.)
+  preflightContinue: false, // Express will handle OPTIONS preflight requests
+  optionsSuccessStatus: 204,  // For legacy browsers (e.g., IE)
+};
 
-const corsOption = {
-  credentials: true,
-  origin: [process.env.CLIENT_URL]
-}
-app.use(cors(corsOption))
+// Apply CORS middleware globally
+app.use(cors(corsOptions));
+
 
 const PORT = process.env.PORT || 5500
 
@@ -44,6 +52,7 @@ app.use(router)
 
 app.use("/storage", express.static("storage"))
 
+app.options('*', cors(corsOptions));
 
 // sockets
 const socketUserMapping = {}
