@@ -22,3 +22,4 @@ export const activateSlice = createSlice({
 export const { setName, setAvatar } = activateSlice.actions;
 
 export default activateSlice.reducer
+

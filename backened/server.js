@@ -27,7 +27,7 @@ app.use(cookieParser());
 
 const allowedOrigins = [
   'https://talkify-frontend-g7g1.onrender.com',
-  process.env.LOCAL_DEV_CLIENT_URL
+  'http://localhost:5173'
 ];
 
 const corsOptions = {

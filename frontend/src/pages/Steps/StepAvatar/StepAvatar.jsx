@@ -12,10 +12,12 @@ const StepAvatar = ({onNext}) => {
   const { name, avatar } = useSelector((state) => state.activate)
   const [image, setImage] = useState("/images/monkey-avatar.png")
   const dispatch = useDispatch()
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [uploadImage, setUploadImage] = useState(null);
 
   function captureImage(e){
     const file = e.target.files[0];
+    setUploadImage(file)
     const reader = new FileReader();
     reader.onloadend = () => {
       setImage(reader.result);
@@ -25,14 +27,18 @@ const StepAvatar = ({onNext}) => {
   }
 
   async function submit(){
-    if(!name || !avatar){
+    if(!name || !uploadImage){
       return
     }
 
-    setLoading(true)
+    setLoading(true);
 
     try{
-      const {data} = await activate({ name, avatar });
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("avatar", uploadImage)
+      
+      const {data} = await activate(formData);
       if(data.auth){
         dispatch(setAuth({ user: data.user }))
       }

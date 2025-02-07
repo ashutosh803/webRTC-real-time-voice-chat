@@ -2,23 +2,27 @@ const userService = require("../services/user-service");
 const sharp = require('sharp');
 const path = require("path");
 const UserDto = require("../dtos/user-dto");
+const { uploadToCloudinary } = require("../services/cloudinary");
 
 
 class ActivateController {
   async activate(req, res){
-    const { name, avatar } = req.body;
+    if(!req.file){
+      return res.status(400).json({message: 'file is required'})
+    }
+
+    const { name } = req.body;
+
+    const avatar = req.file.buffer;
 
     if(!name || !avatar){
       return res.status(400).json({message: 'All fields are required'})
     }
 
-    const buffer = Buffer.from(avatar.replace(/^data:image\/(png|jpg|jpeg);base64,/, ""), "base64")
-
-    const imagePath = `${Date.now()}-${Math.round(Math.random() * 1e9)}.png`
+    let avatarUrl;
 
     try{
-      const processedImage = await sharp(buffer).resize(150).toBuffer()
-      await sharp(processedImage).toFile(path.resolve(__dirname, `../storage/${imagePath}`))
+      avatarUrl = await uploadToCloudinary(avatar);
 
     } catch(err){
       console.log(err)
@@ -36,7 +40,7 @@ class ActivateController {
   
       user.activated = true
       user.name = name
-      user.avatar = `/storage/${imagePath}`
+      user.avatar = avatarUrl
       await user.save();
   
       res.json({auth: true, user: new UserDto(user)})

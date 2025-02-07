@@ -8,14 +8,6 @@ const userSchema = new mongoose.Schema({
   avatar: {
     type: String,
     required: false,
-    get: (avatar) => {
-      if(avatar){
-        return `${process.env.BASE_URL}${avatar}`
-      }
-      else {
-        return avatar
-      }
-    }
   },
 
   phone: {
