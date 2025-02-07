@@ -16,7 +16,7 @@ const server = require('http').createServer(app);
 // Socket.IO setup
 const io = require('socket.io')(server, {
   cors: {
-    origin: process.env.CLIENT_URL,  
+    origin: 'https://talkify-frontend-5ji6.onrender.com',  
     methods: ['GET', 'POST'],
     credentials: true,  
   }
@@ -26,8 +26,8 @@ app.use(cookieParser());
 
 
 const allowedOrigins = [
-  process.env.CLIENT_URL,
-  process.env.LOCAL_DEV_CLIENT_URL
+  'https://talkify-frontend-5ji6.onrender.com',
+  'http://localhost:5173'
 ];
 
 const corsOptions = {
